@@ -1,0 +1,104 @@
+
+===========================
+	Flutter - Udemy
+===========================
+
+## DART
+
+Tipos de var
+	- String
+	- int
+	- double
+	- bool
+
+Arrays
+	nomeArray = []
+	ouNomeArray = ['Nome um', 'Nome Dois']
+
+Função anonima = (){}
+
+	double _saque;
+	Double get saque(){
+		this._saque = saque;
+	}
+	set saque(double saque){
+		this._saque = saque;
+	}
+
+@override // Sobrescrever a classe adicionar a anotação
+super.methodo(); alem da parte comun da pai adicionar mais comandos
+
+final = finaliza;
+static = acessa diretamente as var e methodos
+ 
+abstract class nomeClasse(){} = não pode ser istanciada (ex: animal)
+void corre(); methodo abstrato obriga a filha a implementar
+
+abstrata
+	class nomeClass{
+		void ganharEleicao();	
+	}
+	OU
+	abstract class nomeClass{
+		void ganharEleicao();	
+	}
+	class nomeQualquerClass implements nomeClass{
+		void ganharEleicao();	
+	}
+
+ == Interface mais de uma extends somente uma ==
+
+mixin Escrita{
+	
+}
+
+Adiciona função a class
+## with Escrita
+
+frutas.insert(posição 1, 'ssfsdfd')
+frutas.removeAt(posição 1)
+frutas.contains('pera')
+frutas.length()
+
+Armazenar OBJ
+
+	List<Usuario> user = List();
+	usuario.add(user)
+
+MAPS
+	
+	Map frutas = Map();
+	frutas["MO"] = "Morango";
+	frutas[0] = "Manga";
+
+	Map<int, String> estados = Map();
+	estados[0] = 'São Paulo'
+
+	estados.keys
+	estados.values
+
+	estados.containsKey(valor)
+	estados.containsValues('valor')
+
+	estados.foreach(
+		(chave, valor) => print('sdadsadas')
+	);
+
+	Map<String, dynamic> usuarios = Map();
+	usuario['SP'] = 'São paula';
+	usuario['SP'] = 0245.3;
+	usuario['SP'] = 20;
+
+
+var nomeVar = "João"
+const nomeConstante = 3.14
+dynamic nomevar = asdad;
+print('Printar!!!')
+
+
+
+=============================
+	Flutter - Udemy / APP
+=============================
+
+
