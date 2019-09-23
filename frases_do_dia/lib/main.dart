@@ -5,28 +5,7 @@ void main() {
     //debugShowCheckedModeBanner: false,
 
     debugShowCheckedModeBanner: false,
-    home: Scaffold(
-      appBar: AppBar(
-        title: Text('Instagram'),
-        backgroundColor: Colors.green,
-      ),
-      body: Padding(
-        padding:  EdgeInsets.all(16),
-        child: Text('Conteudo principal.'),
-      ),
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.lightGreen,
-        child:  Padding(
-          padding: EdgeInsets.all(16),
-          child: Row(
-            children: <Widget>[
-              Text('T1'),
-              Text('T2'),
-            ],
-          ),
-        )
-      ),
-    ),
+    home: HomeStatefull() //Home()
 
     //title: 'Frases do dia',
 
@@ -173,4 +152,73 @@ void main() {
         ],*/
     ),
   );
+}
+
+class HomeStatefull extends StatefulWidget {
+  @override
+  _HomeStatefullState createState() => _HomeStatefullState();
+}
+
+class _HomeStatefullState extends State<HomeStatefull> {
+
+  var _texto = "Instagram";
+
+  @override
+  Widget build(BuildContext context) {
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(_texto), //Text('Instagram'),
+        backgroundColor: Colors.green,
+      ),
+      body: Container(
+        child: Column(
+          children: <Widget>[
+            RaisedButton(
+              onPressed: (){
+                setState(() {
+                  _texto = "Curso Flutter!";
+                });
+              },
+              child: Text('Click Aqui!'),
+            ),
+            Text('Nome: $_texto ')
+          ],
+        ),
+      ),
+    );
+
+  }
+}
+
+
+class Home extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+
+    var _titulo = "Instagram";
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(_titulo), //Text('Instagram'),
+        backgroundColor: Colors.green,
+      ),
+      body: Padding(
+        padding:  EdgeInsets.all(16),
+        child: Text('Conteudo principal.'),
+      ),
+      bottomNavigationBar: BottomAppBar(
+          color: Colors.lightGreen,
+          child:  Padding(
+            padding: EdgeInsets.all(16),
+            child: Row(
+              children: <Widget>[
+                Text('T1'),
+                Text('T2'),
+              ],
+            ),
+          )
+      ),
+    );
+  }
 }
