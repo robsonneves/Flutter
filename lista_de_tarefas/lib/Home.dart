@@ -12,6 +12,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
 
   List _listaTarefa = [];
+  Map<String, dynamic> _ultimaTarefaRemovida = Map();
 
   TextEditingController _controllerTarefa = TextEditingController();
 
@@ -69,8 +70,72 @@ class _HomeState extends State<Home> {
 
   }
 
+  Widget criarItemLista(context, index){
+
+    //final item = _listaTarefa[index]["titulo"]; //+ _listaTarefa[index]["realizada"].toString();
+
+    return Dismissible(
+        key: Key( DateTime.now().microsecondsSinceEpoch.toString() ),
+        direction: DismissDirection.endToStart,
+        onDismissed: (direction){
+
+          //recuperar ultimo item excluido
+          _ultimaTarefaRemovida = _listaTarefa[index];
+
+          //remover da lista
+          _listaTarefa.removeAt(index);
+          _salvarArquivo();
+
+          //snachbar
+          final snackbar = SnackBar(
+            //backgroundColor: Colors.green,
+            duration: Duration(seconds: 5),
+            content: Text("Tarefa removida"),
+            action: SnackBarAction(
+              label: "Desfazer",
+              onPressed: (){
+                setState(() {
+                  _listaTarefa.insert(index, _ultimaTarefaRemovida);
+                });
+                _salvarArquivo();
+              },
+            ),
+          );
+          
+          Scaffold.of(context).showSnackBar(snackbar);
+          
+        },
+        background: Container(
+          color: Colors.red,
+          padding: EdgeInsets.all(16),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              Icon(
+                Icons.delete,
+                color: Colors.white,
+              )
+            ],
+          ),
+        ),
+        child: CheckboxListTile(
+          title: Text(_listaTarefa[index]['titulo']),
+          value: _listaTarefa[index]['realizada'],
+          onChanged: (valorAlterado){
+            setState(() {
+              _listaTarefa[index]['realizada'] = valorAlterado;
+            });
+            _salvarTarefa();
+          },
+        )
+    );
+
+  }
+
   @override
   Widget build(BuildContext context) {
+
+    //print("items: " + DateTime.now().microsecondsSinceEpoch.toString() );
 
     return Scaffold(
       appBar: AppBar(
@@ -122,7 +187,7 @@ class _HomeState extends State<Home> {
           Expanded(
               child: ListView.builder(
                 itemCount: _listaTarefa.length,
-                itemBuilder: (context, index){
+                itemBuilder: criarItemLista /*(context, index){
 
                   return CheckboxListTile(
                     title: Text(_listaTarefa[index]['titulo']),
@@ -134,6 +199,7 @@ class _HomeState extends State<Home> {
                       _salvarTarefa();
                     },
                   );
+                  */
 
                   /*
                   return ListTile(
@@ -141,8 +207,8 @@ class _HomeState extends State<Home> {
                   );
                   */
 
-                },
-              )
+                //},
+              ),
           )
         ],
       )
