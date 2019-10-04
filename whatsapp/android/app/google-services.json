@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "885153506070",
+    "firebase_url": "https://whatsapp-4a521.firebaseio.com",
+    "project_id": "whatsapp-4a521",
+    "storage_bucket": "whatsapp-4a521.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:885153506070:android:89354ad2bce15468f5e637",
+        "android_client_info": {
+          "package_name": "com.robsonrodrigues.whatsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "885153506070-48ui9g5sphgclilohbl2o43gneev7k2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPC3sEfjpy-hJqbqSC08thc38fAdnCe9s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "885153506070-48ui9g5sphgclilohbl2o43gneev7k2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
